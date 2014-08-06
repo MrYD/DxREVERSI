@@ -1,0 +1,6 @@
+﻿'REVERSI.exe' (Win32): 'C:\Users\MOD\Documents\Visual Studio 2013\Projects\REVERSI\Debug\REVERSI.exe' が読み込まれました。シンボルが読み込まれました。
+'REVERSI.exe' (Win32): 'C:\Windows\SysWOW64\ntdll.dll' が読み込まれました。PDB ファイルを開けないか、ファイルが見つかりません。
+'REVERSI.exe' (Win32): 'C:\Windows\SysWOW64\kernel32.dll' が読み込まれました。PDB ファイルを開けないか、ファイルが見つかりません。
+'REVERSI.exe' (Win32): 'C:\Windows\SysWOW64\KernelBase.dll' が読み込まれました。PDB ファイルを開けないか、ファイルが見つかりません。
+スレッド 0x1650 はコード -1073741510 (0xc000013a) で終了しました。
+プログラム '[5864] REVERSI.exe' はコード -1073741510 (0xc000013a) で終了しました。
