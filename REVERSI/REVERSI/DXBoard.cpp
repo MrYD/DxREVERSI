@@ -33,8 +33,8 @@ void DXBoard::printBotans()
 	DrawCircle(100, 75, 17, WHITE, TRUE);
 	DrawFormatString(140, 35, BLACK, "%d", getNumber(1));
 	DrawFormatString(140, 75, BLACK, "%d", getNumber(2));
-	LoadGraphScreen(450, 80, "C:\\Users\\MOD\\Documents\\Visual Studio 2013\\Projects\\REVERSI\\REVERSI\\‰æ‘œ\\UNDO.png", TRUE);
-	LoadGraphScreen(450, 150, "C:\\Users\\MOD\\Documents\\Visual Studio 2013\\Projects\\REVERSI\\REVERSI\\‰æ‘œ\\MENU.png", TRUE);
+	LoadGraphScreen(450, 80, "..\\REVERSI\\‰æ‘œ\\UNDO.png", TRUE);
+	LoadGraphScreen(450, 150, "..\\REVERSI\\‰æ‘œ\\MENU.png", TRUE);
 	DrawFormatString(340, 75, BLACK, "TURN %d", getThisTurn());
 
 }
@@ -183,10 +183,10 @@ void DXBoard::menu()
 		return;
 	}
 	ClearDrawScreen();
-	LoadGraphScreen(150, 100, "C:\\Users\\MOD\\Documents\\Visual Studio 2013\\Projects\\REVERSI\\REVERSI\\‰æ‘œ\\REVERCI_title.png", TRUE);
-	LoadGraphScreen(50, 350, "C:\\Users\\MOD\\Documents\\Visual Studio 2013\\Projects\\REVERSI\\REVERSI\\‰æ‘œ\\2PLAYER.png", TRUE);
-	LoadGraphScreen(250, 350, "C:\\Users\\MOD\\Documents\\Visual Studio 2013\\Projects\\REVERSI\\REVERSI\\‰æ‘œ\\BLACK.png", TRUE);
-	LoadGraphScreen(450, 350, "C:\\Users\\MOD\\Documents\\Visual Studio 2013\\Projects\\REVERSI\\REVERSI\\‰æ‘œ\\WHITE.png", TRUE);
+	LoadGraphScreen(150, 100, "..\\REVERSI\\‰æ‘œ\\REVERCI_title.png", TRUE);
+	LoadGraphScreen(50, 350, "..\\REVERSI\\‰æ‘œ\\2PLAYER.png", TRUE);
+	LoadGraphScreen(250, 350, "..\\REVERSI\\‰æ‘œ\\BLACK.png", TRUE);
+	LoadGraphScreen(450, 350, "..\\REVERSI\\‰æ‘œ\\WHITE.png", TRUE);
 	ScreenFlip();
 	int ClickX, ClickY, Button;
 	int Flag = FALSE, i, j;

@@ -26,7 +26,7 @@ private:
 	void printBotans();
 	void pass_MessageBox();
 	void menu_MessageBox();
-	Botan botan[5];
+//	Botan botan[5];
 	
 };
 
