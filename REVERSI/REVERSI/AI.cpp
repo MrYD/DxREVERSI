@@ -21,18 +21,18 @@ AI::AI(Board board)
 	this->myPlayer = board.getTurnPlayer();
 	this->count = 0;
 	this->firstTurn = board.getThisTurn();
-	readNumber = 7;
-	startFinalRead = 42;
+	readNumber = 6;
+	startFinalRead = 43;
 	int num = board.getAbleNumber(1) * board.getAbleNumber(2);
 	if (num <= 25)
 	{
-		readNumber = 9;
-		startFinalRead = 41;
+		readNumber = 8;
+		startFinalRead = 42;
 	}
 	if (num >= 100)
 	{
-		readNumber = 6;
-		startFinalRead = 43;
+		readNumber = 5;
+		startFinalRead = 44;
 	}
 }
 AI::~AI()

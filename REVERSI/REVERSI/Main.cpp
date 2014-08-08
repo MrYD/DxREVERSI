@@ -27,7 +27,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0)
 	{
 		board->menu();
-		board->getBoard();
+		board->game();
 	}
 	WaitKey();
 	DxLib_End();				// ＤＸライブラリ使用の終了処理

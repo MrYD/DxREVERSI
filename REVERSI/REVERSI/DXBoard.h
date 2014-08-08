@@ -8,25 +8,27 @@
 #define LIGHT_BLACK GetColor(0,180,0)
 #define WHITE  GetColor(225,225,225)
 #define LIGHT_WHITE  GetColor(100,250,100)
+#define MENU 4
+#define GAME 2
 class DXBoard : public Board
 {
 public:
 	DXBoard();
 	~DXBoard();
 	void init();
-	void getBoard();
+	void game();
 	void menu();
-	void print();
+	void print_game();
+	void print_menue();
 private:
 	int mode;
 	bool isEnd;
 	void input(int* num,int* i,int* j);
-	void printBoard();
 	void result_MessageBox();
-	void printBotans();
 	void pass_MessageBox();
 	void menu_MessageBox();
-//	Botan botan[5];
+	Botan menu_botan[MENU];
+	Botan game_botan[GAME];
 	
 };
 

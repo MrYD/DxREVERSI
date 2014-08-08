@@ -14,32 +14,36 @@ void DXBoard::init()
 	mode = 0;
 	isEnd = false;
 	Board::init(1);
+	menu_botan[0] = Botan(150, 100, 341, 123, "..\\REVERSI\\画像\\REVERCI_title.png");
+	menu_botan[1] = Botan(50, 350, 150, 50, "..\\REVERSI\\画像\\2PLAYER.png");
+	menu_botan[2] = Botan(250, 350, 150, 50, "..\\REVERSI\\画像\\BLACK.png");
+	menu_botan[3] = Botan(450, 350, 150, 50, "..\\REVERSI\\画像\\WHITE.png");
+	game_botan[0] = Botan(450, 80, 150, 50, "..\\REVERSI\\画像\\UNDO.png");
+	game_botan[1] = Botan(450, 150, 150, 50, "..\\REVERSI\\画像\\MENU.png");
 }
-
-void DXBoard::print()
+void DXBoard::print_menue()
 {
 	// 画面を初期化
 	ClearDrawScreen();
 	// 描画先画面を裏にする
 	SetDrawScreen(DX_SCREEN_BACK);
-	printBoard();
-	printBotans();
+	for (int i = 0; i < MENU; i++)
+	{
+		menu_botan[i].print();
+	}
 	// 裏画面の内容を表画面に反映します
 	ScreenFlip();
 }
-void DXBoard::printBotans()
+void DXBoard::print_game()
 {
-	DrawCircle(100, 35, 17, BLACK, TRUE);
-	DrawCircle(100, 75, 17, WHITE, TRUE);
-	DrawFormatString(140, 35, BLACK, "%d", getNumber(1));
-	DrawFormatString(140, 75, BLACK, "%d", getNumber(2));
-	LoadGraphScreen(450, 80, "..\\REVERSI\\画像\\UNDO.png", TRUE);
-	LoadGraphScreen(450, 150, "..\\REVERSI\\画像\\MENU.png", TRUE);
-	DrawFormatString(340, 75, BLACK, "TURN %d", getThisTurn());
-
-}
-void DXBoard::printBoard()
-{
+	// 画面を初期化
+	ClearDrawScreen();
+	// 描画先画面を裏にする
+	SetDrawScreen(DX_SCREEN_BACK);
+	for (int i = 0; i < GAME; i++)
+	{
+		game_botan[i].print();
+	}
 	DrawBox(80, 100, 400, 420, BOARD, TRUE);
 	for (int i = 0; i < 9; i++)
 	{
@@ -75,13 +79,21 @@ void DXBoard::printBoard()
 	}
 	if (getCondition() == 0 && turnPlayer == 2)
 	{
-		DrawCircle(100 + point[thisTurn].get_x() * 40, 120 + point[thisTurn].get_y() * 40, 2,WHITE, TRUE);
+		DrawCircle(100 + point[thisTurn].get_x() * 40, 120 + point[thisTurn].get_y() * 40, 2, WHITE, TRUE);
 	}
 	if (getCondition() == 0 && turnPlayer == 1)
 	{
 		DrawCircle(100 + point[thisTurn].get_x() * 40, 120 + point[thisTurn].get_y() * 40, 2, BLACK, TRUE);
 	}
+	DrawCircle(100, 35, 17, BLACK, TRUE);
+	DrawCircle(100, 75, 17, WHITE, TRUE);
+	DrawFormatString(140, 35, BLACK, "%d", getNumber(1));
+	DrawFormatString(140, 75, BLACK, "%d", getNumber(2));
+	DrawFormatString(340, 75, BLACK, "TURN %d", getThisTurn());
+	// 裏画面の内容を表画面に反映します
+	ScreenFlip();
 }
+
 void DXBoard::result_MessageBox()
 {
 	int flag;
@@ -148,7 +160,7 @@ void DXBoard::pass_MessageBox()
 	if (flag != IDNO)
 	{
 		pass();
-		print();
+		print_game();
 	}
 	else
 	{
@@ -157,7 +169,7 @@ void DXBoard::pass_MessageBox()
 		{
 			undo();
 		}
-		print();
+		print_game();
 	}
 }
 void DXBoard::menu_MessageBox()
@@ -182,42 +194,20 @@ void DXBoard::menu()
 	{
 		return;
 	}
-	ClearDrawScreen();
-	LoadGraphScreen(150, 100, "..\\REVERSI\\画像\\REVERCI_title.png", TRUE);
-	LoadGraphScreen(50, 350, "..\\REVERSI\\画像\\2PLAYER.png", TRUE);
-	LoadGraphScreen(250, 350, "..\\REVERSI\\画像\\BLACK.png", TRUE);
-	LoadGraphScreen(450, 350, "..\\REVERSI\\画像\\WHITE.png", TRUE);
-	ScreenFlip();
-	int ClickX, ClickY, Button;
-	int Flag = FALSE, i, j;
-	if (GetMouseInputLog(&Button, &ClickX, &ClickY, TRUE) == 0)
-	{
-		// 左ボタンがクリックされていたらフラグを立てて、座標も保存する
-		if ((Button & MOUSE_INPUT_LEFT) != 0)
-		{
-			Flag = TRUE;
-			i = ClickX;
-			j = ClickY;
-		}
-	}
-	//フラグが立っていたら
-	if (Flag == TRUE)
-	{
-		if (i >= 50 && i <= 200 && j >= 350 && j <= 400)
+	print_menue();
+		if (menu_botan[1].isTouched())
 		{
 			mode = 1;
 		}
-		if (i >= 250 && i <= 400 && j >= 350 && j <= 400)
+		if (menu_botan[2].isTouched())
 		{
 			mode = 2;
 		}
-		if (i >= 450 && i <= 600 && j >= 350 && j <= 400)
+		if (menu_botan[3].isTouched())
 		{
 			mode = 3;
 		}
-	}
 }
-
 void DXBoard::input(int* num, int* i, int* j)
 {
 	if ((mode == 2 && turnPlayer == 2) || (mode == 3 && turnPlayer == 1))
@@ -230,12 +220,12 @@ void DXBoard::input(int* num, int* i, int* j)
 	{
 		if ((Button & MOUSE_INPUT_LEFT) != 0)
 		{
-			if (ClickX >= 450 && ClickX <= 600 && ClickY >= 80 && ClickY <= 130)
+			if (game_botan[0].isTouched())
 			{
 				*num = -1;
 				return;
 			}
-			if (ClickX >= 450 && ClickX <= 600 && ClickY >= 150 && ClickY <= 200)
+			if (game_botan[1].isTouched())
 			{
 				menu_MessageBox();
 				return;
@@ -253,13 +243,13 @@ void DXBoard::input(int* num, int* i, int* j)
 }
 
 
-void DXBoard::getBoard()
+void DXBoard::game()
 {
 	if (mode == 0)
 	{
 		return;
 	}
-	print();
+	print_game();
 	switch (getCondition())
 	{
 	case 0:
@@ -275,7 +265,7 @@ void DXBoard::getBoard()
 				  Point *point = new Point(i, j, 0);
 				  if (put(*point))
 				  {
-					  print();
+					  print_game();
 				  }
 				  delete point;
 				  return;
@@ -286,14 +276,14 @@ void DXBoard::getBoard()
 			{
 				undo();
 			}
-			print();
+			print_game();
 			return;
 		case 0:
 		{
 				  Point *point = new Point(AI::answer(this), ableSpace);
 				  if (put(*point))
 				  {
-					  print();
+					  print_game();
 				  }
 				  delete point;
 				  return;
