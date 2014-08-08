@@ -21,16 +21,12 @@ void Botan::print()
 {
 	LoadGraphScreen(x1, y1, GraphName, TRUE);
 }
-bool Botan::isTouched()
+bool Botan::isTouched(int x,int y)
 {
-	int ClickX, ClickY, Button;
-	if (GetMouseInputLog(&Button, &ClickX, &ClickY, TRUE) == 0)
-	{
-		if ((Button & MOUSE_INPUT_LEFT) != 0 && (ClickX >= x1 && ClickX <= x2 && ClickY >= y1 && ClickY <= y2))
+		if  (x >= x1 && x <= x2 && y >= y1 && y <= y2)
 		{
 			touchedNumber++;
 			return true;	
 		}
-	}
 	return false;
 }

@@ -18,12 +18,13 @@ public:
 	void init();
 	void game();
 	void menu();
-	void print_game();
-	void print_menue();
 private:
 	int mode;
 	bool isEnd;
-	void input(int* num,int* i,int* j);
+	void print_game();
+	void print_menue();
+	void input_game(int* num,int* i,int* j);
+	void input_menu(int* num);
 	void result_MessageBox();
 	void pass_MessageBox();
 	void menu_MessageBox();

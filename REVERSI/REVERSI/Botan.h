@@ -8,7 +8,7 @@ public:
 	Botan();
 	~Botan();
 	void print();
-	bool isTouched();
+	bool isTouched(int x,int y);
 private:
 	int touchedNumber;
 	int x1;

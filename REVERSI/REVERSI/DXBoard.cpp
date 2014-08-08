@@ -5,7 +5,6 @@ DXBoard::DXBoard()
 {
 	this->init();
 }
-
 DXBoard::~DXBoard()
 {
 }
@@ -23,23 +22,13 @@ void DXBoard::init()
 }
 void DXBoard::print_menue()
 {
-	// ‰æ–Ê‚ğ‰Šú‰»
-	ClearDrawScreen();
-	// •`‰ææ‰æ–Ê‚ğ— ‚É‚·‚é
-	SetDrawScreen(DX_SCREEN_BACK);
 	for (int i = 0; i < MENU; i++)
 	{
 		menu_botan[i].print();
 	}
-	// — ‰æ–Ê‚Ì“à—e‚ğ•\‰æ–Ê‚É”½‰f‚µ‚Ü‚·
-	ScreenFlip();
 }
 void DXBoard::print_game()
 {
-	// ‰æ–Ê‚ğ‰Šú‰»
-	ClearDrawScreen();
-	// •`‰ææ‰æ–Ê‚ğ— ‚É‚·‚é
-	SetDrawScreen(DX_SCREEN_BACK);
 	for (int i = 0; i < GAME; i++)
 	{
 		game_botan[i].print();
@@ -90,8 +79,7 @@ void DXBoard::print_game()
 	DrawFormatString(140, 35, BLACK, "%d", getNumber(1));
 	DrawFormatString(140, 75, BLACK, "%d", getNumber(2));
 	DrawFormatString(340, 75, BLACK, "TURN %d", getThisTurn());
-	// — ‰æ–Ê‚Ì“à—e‚ğ•\‰æ–Ê‚É”½‰f‚µ‚Ü‚·
-	ScreenFlip();
+	DrawBox(440, 220, 620, 420, BLACK, FALSE);
 }
 
 void DXBoard::result_MessageBox()
@@ -195,20 +183,33 @@ void DXBoard::menu()
 		return;
 	}
 	print_menue();
-		if (menu_botan[1].isTouched())
-		{
-			mode = 1;
-		}
-		if (menu_botan[2].isTouched())
-		{
-			mode = 2;
-		}
-		if (menu_botan[3].isTouched())
-		{
-			mode = 3;
-		}
+	input_menu(&mode);
 }
-void DXBoard::input(int* num, int* i, int* j)
+void DXBoard::input_menu(int* num)
+{
+	int ClickX, ClickY, Button;
+	if (GetMouseInputLog(&Button, &ClickX, &ClickY, TRUE) == 0)
+	{
+		if ((Button & MOUSE_INPUT_LEFT) != 0)
+		{
+
+			if (menu_botan[1].isTouched(ClickX, ClickY))
+			{
+				*num = 1;
+			}
+			if (menu_botan[2].isTouched(ClickX, ClickY))
+			{
+				*num = 2;
+			}
+			if (menu_botan[3].isTouched(ClickX, ClickY))
+			{
+				*num = 3;
+			}
+		}
+	}
+}
+
+void DXBoard::input_game(int* num, int* i, int* j)
 {
 	if ((mode == 2 && turnPlayer == 2) || (mode == 3 && turnPlayer == 1))
 	{
@@ -220,12 +221,12 @@ void DXBoard::input(int* num, int* i, int* j)
 	{
 		if ((Button & MOUSE_INPUT_LEFT) != 0)
 		{
-			if (game_botan[0].isTouched())
+			if (game_botan[0].isTouched(ClickX, ClickY))
 			{
 				*num = -1;
 				return;
 			}
-			if (game_botan[1].isTouched())
+			if (game_botan[1].isTouched(ClickX, ClickY))
 			{
 				menu_MessageBox();
 				return;
@@ -253,12 +254,13 @@ void DXBoard::game()
 	switch (getCondition())
 	{
 	case 0:
-
 		int num, i, j;
-		input(&num, &i, &j);
+		input_game(&num, &i, &j);
 		switch (num)
 		{
 		default:
+			DrawFormatString(460, 240, BLACK, "TURN PLAYER %d", getTurnPlayer());
+			ScreenFlip();
 			return;
 		case 1:
 		{
@@ -280,6 +282,8 @@ void DXBoard::game()
 			return;
 		case 0:
 		{
+				  DrawFormatString(460, 240, BLACK, "TURN CPU");
+				  ScreenFlip();
 				  Point *point = new Point(AI::answer(this), ableSpace);
 				  if (put(*point))
 				  {
@@ -298,7 +302,7 @@ void DXBoard::game()
 		{
 			result_MessageBox();
 		}
-		input(&num, &i, &j);
+		input_game(&num, &i, &j);
 		return;
 	}
 }

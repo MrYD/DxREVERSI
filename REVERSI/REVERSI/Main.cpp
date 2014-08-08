@@ -26,8 +26,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     unique_ptr<DXBoard> board(new DXBoard());
 	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0)
 	{
+		// 画面を初期化
+		ClearDrawScreen();
+		// 描画先画面を裏にする
+		SetDrawScreen(DX_SCREEN_BACK);
 		board->menu();
 		board->game();
+		// 裏画面の内容を表画面に反映します
+		ScreenFlip();
 	}
 	WaitKey();
 	DxLib_End();				// ＤＸライブラリ使用の終了処理
