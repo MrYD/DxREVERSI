@@ -30,8 +30,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		ClearDrawScreen();
 		// •`‰ææ‰æ–Ê‚ð— ‚É‚·‚é
 		SetDrawScreen(DX_SCREEN_BACK);
-		board->menu();
-		board->game();
+		board->face();
 		// — ‰æ–Ê‚Ì“à—e‚ð•\‰æ–Ê‚É”½‰f‚µ‚Ü‚·
 		ScreenFlip();
 	}
