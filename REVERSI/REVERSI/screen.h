@@ -7,10 +7,10 @@ class Screen
 public:
 	Screen();
 	~Screen();
-	void init();
-	void face();
+	virtual void init();
+	virtual void face();
 protected:
-	void print();
-    void input();
+	virtual void print();
+    virtual void input();
 };
 

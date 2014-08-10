@@ -7,7 +7,3 @@ Screen::Screen()
 Screen::~Screen()
 {
 }
-void Screen::init(){}
-void Screen::face(){}
-void Screen::print(){}
-void Screen::input(){}
