@@ -3,7 +3,7 @@
 MenuScreen::MenuScreen()
 {
 }
-MenuScreen::MenuScreen(int mode)
+MenuScreen::MenuScreen(int* mode)
 {
 	init(mode);
 }
@@ -11,8 +11,12 @@ MenuScreen::MenuScreen(int mode)
 MenuScreen::~MenuScreen()
 {
 }
+int MenuScreen::getMode()
+{
+	return *mode;
+}
 
-void MenuScreen::init(int mode)
+void MenuScreen::init(int* mode)
 {
 	this->mode = mode;
 	menu_botan[0] = Botan(150, 100, 341, 123, "..\\REVERSI\\‰æ‘œ\\REVERCI_title.png");
@@ -37,15 +41,15 @@ void MenuScreen::input()
 
 			if (menu_botan[1].isTouched(ClickX, ClickY))
 			{
-				mode = 1;
+				*mode = 1;
 			}
 			if (menu_botan[2].isTouched(ClickX, ClickY))
 			{
-				mode = 2;
+				*mode = 2;
 			}
 			if (menu_botan[3].isTouched(ClickX, ClickY))
 			{
-				mode = 3;
+				*mode = 3;
 			}
 		}
 	}

@@ -14,19 +14,20 @@ void DXBoard::init()
 {
 	mode = 0;
 	Board::init(1);
-	menuScreen =new MenuScreen(mode);
-	gameScreen =new GameScreen(mode,this);
+	menuScreen =new MenuScreen(&mode);
+	gameScreen =new GameScreen(&mode,this);
 }
+
 
 void DXBoard::face()
 {
 	if (mode == 0)
 	{
+		init();
 		menuScreen->face();
 	}
 	else
 	{
 		gameScreen->face();
-		this->mode = gameScreen->getMode();
 	}
 }

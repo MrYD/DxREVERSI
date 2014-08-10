@@ -4,7 +4,7 @@
 GameScreen::GameScreen()
 {
 }
-GameScreen::GameScreen(int mode,Board *board)
+GameScreen::GameScreen(int* mode,Board *board)
 {
 	init(mode,board);
 }
@@ -15,9 +15,9 @@ GameScreen::~GameScreen()
 }
 int GameScreen::getMode()
 {
-	return mode;
+	return *mode;
 }
-void GameScreen::init(int mode,Board *board)
+void GameScreen::init(int* mode,Board *board)
 {
 	this->mode = mode;
 	this->board = board;
@@ -32,7 +32,7 @@ void GameScreen::face()
 	switch (board->getCondition())
 	{
 	case 0:
-		mode = 0;
+		num = 0;
 		input();
 		switch (num)
 		{
@@ -52,7 +52,7 @@ void GameScreen::face()
 		}
 		case -1:
 			board->undo();
-			if (mode != 1)
+			if (*mode != 1)
 			{
 				board->undo();
 			}
@@ -87,7 +87,7 @@ void GameScreen::face()
 
 void GameScreen::input()
 {
-	if ((mode == 2 && board->getTurnPlayer() == 2) || (mode == 3 && board->getTurnPlayer() == 1))
+	if ((*mode == 2 && board->getTurnPlayer() == 2) || (*mode == 3 && board->getTurnPlayer() == 1))
 	{
 		num = 0;
 		return;
@@ -121,7 +121,7 @@ void GameScreen::input()
 
 void GameScreen::print()
 {
-	for (int i = 0; i < GAME; i++)
+	for (int i = 0; i < 2; i++)
 	{
 		botan[i].print();
 	}
@@ -177,7 +177,7 @@ void GameScreen::print()
 void GameScreen::result_MessageBox()
 {
 	int flag;
-	if ((board->getNumber(1) > board->getNumber(2) && mode == 2) || (board->getNumber(1) < board->getNumber(2) && mode == 3))
+	if ((board->getNumber(1) > board->getNumber(2) && *mode == 2) || (board->getNumber(1) < board->getNumber(2) && *mode == 3))
 	{
 		flag = MessageBox(
 			NULL,
@@ -185,7 +185,7 @@ void GameScreen::result_MessageBox()
 			TEXT("RESULT"),
 			MB_YESNO | MB_ICONQUESTION);
 	}
-	else if ((board->getNumber(1) < board->getNumber(2) && mode == 2) || (board->getNumber(1) > board->getNumber(2) && mode == 3))
+	else if ((board->getNumber(1) < board->getNumber(2) && *mode == 2) || (board->getNumber(1) > board->getNumber(2) && *mode == 3))
 	{
 		flag = MessageBox(
 			NULL,
@@ -220,7 +220,7 @@ void GameScreen::result_MessageBox()
 	if (flag == IDNO)
 	{
 		board->undo();
-		if (mode != 1)
+		if (*mode != 1)
 		{
 			board->undo();
 		}
@@ -245,7 +245,7 @@ void GameScreen::pass_MessageBox()
 	else
 	{
 		board->undo();
-		if (mode != 1)
+		if (*mode != 1)
 		{
 			board->undo();
 		}
@@ -262,8 +262,7 @@ void GameScreen::menu_MessageBox()
 		MB_YESNO | MB_ICONQUESTION);
 	if (flag != IDNO)
 	{
-		board->init(1);
-		mode = 0;
+		*mode = 0;
 	}
 	return;
 }

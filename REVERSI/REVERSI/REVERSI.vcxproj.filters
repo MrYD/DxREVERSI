@@ -39,9 +39,6 @@
     <ClCompile Include="screen.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="GameScreen.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
