@@ -13,66 +13,102 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ソース ファイル\DX">
+      <UniqueIdentifier>{a64b452c-ff96-48f7-81b3-1ef7d2181e60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\BOARD">
+      <UniqueIdentifier>{2bdd5e18-d57f-40b8-a94e-09e07edcaf66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\DX">
+      <UniqueIdentifier>{a6ad5ab5-1a95-49e3-a941-c7adcdc956b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\AI">
+      <UniqueIdentifier>{ef028ea6-9f6c-476c-ad78-3fe2aeee79e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\BOARD">
+      <UniqueIdentifier>{759893e9-4c72-4a51-bc23-05513b863941}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\AI">
+      <UniqueIdentifier>{d6f4fbe5-4e81-4dca-b947-093f741d52fd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Board.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Point.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="AI.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="PointSheet.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="AI.cpp">
+      <Filter>ソース ファイル\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicRead.cpp">
+      <Filter>ソース ファイル\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Board.cpp">
+      <Filter>ソース ファイル\BOARD</Filter>
+    </ClCompile>
     <ClCompile Include="DXBoard.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\DX</Filter>
     </ClCompile>
-    <ClCompile Include="Botan.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="screen.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="FinalRead.cpp">
+      <Filter>ソース ファイル\AI</Filter>
     </ClCompile>
     <ClCompile Include="GameScreen.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\DX</Filter>
     </ClCompile>
     <ClCompile Include="MenuScreen.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\DX</Filter>
+    </ClCompile>
+    <ClCompile Include="Botan.cpp">
+      <Filter>ソース ファイル\DX</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadI.cpp">
+      <Filter>ソース ファイル\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Point.cpp">
+      <Filter>ソース ファイル\BOARD</Filter>
+    </ClCompile>
+    <ClCompile Include="screen.cpp">
+      <Filter>ソース ファイル\DX</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Board.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Point.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="AI.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="PointSheet.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="DXBoard.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="AI.h">
+      <Filter>ヘッダー ファイル\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicRead.h">
+      <Filter>ヘッダー ファイル\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Board.h">
+      <Filter>ヘッダー ファイル\BOARD</Filter>
     </ClInclude>
     <ClInclude Include="Botan.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ヘッダー ファイル\DX</Filter>
     </ClInclude>
-    <ClInclude Include="screen.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="DXBoard.h">
+      <Filter>ヘッダー ファイル\DX</Filter>
+    </ClInclude>
+    <ClInclude Include="FinalRead.h">
+      <Filter>ヘッダー ファイル\AI</Filter>
     </ClInclude>
     <ClInclude Include="GameScreen.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ヘッダー ファイル\DX</Filter>
     </ClInclude>
     <ClInclude Include="MenuScreen.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ヘッダー ファイル\DX</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>ヘッダー ファイル\BOARD</Filter>
+    </ClInclude>
+    <ClInclude Include="screen.h">
+      <Filter>ヘッダー ファイル\DX</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadI.h">
+      <Filter>ヘッダー ファイル\AI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

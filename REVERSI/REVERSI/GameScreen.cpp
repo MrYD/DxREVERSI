@@ -32,7 +32,7 @@ void GameScreen::face()
 	switch (board->getCondition())
 	{
 	case 0:
-		num = 0;
+		num = 0, i = 0, j = 0;
 		input();
 		switch (num)
 		{
@@ -62,7 +62,7 @@ void GameScreen::face()
 		{
 				  DrawFormatString(460, 240, BLACK, "TURN CPU");
 				  ScreenFlip();
-				  Point *point = new Point(AI::answer(board), board->ableSpace);
+				  Point *point = new Point(AI::answer(*board), board->ableSpace);
 				  if (board->put(*point))
 				  {
 					  print();

@@ -72,25 +72,31 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AI.cpp" />
+    <ClCompile Include="BasicRead.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Botan.cpp" />
     <ClCompile Include="DXBoard.cpp" />
+    <ClCompile Include="FinalRead.cpp" />
     <ClCompile Include="GameScreen.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MenuScreen.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="PointSheet.cpp" />
+    <ClCompile Include="ReadI.cpp" />
     <ClCompile Include="screen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AI.h" />
+    <ClInclude Include="BasicRead.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="Botan.h" />
     <ClInclude Include="DXBoard.h" />
+    <ClInclude Include="FinalRead.h" />
     <ClInclude Include="GameScreen.h" />
     <ClInclude Include="MenuScreen.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="PointSheet.h" />
+    <ClInclude Include="ReadI.h" />
     <ClInclude Include="screen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
