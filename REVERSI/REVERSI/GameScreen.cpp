@@ -32,15 +32,15 @@ void GameScreen::face()
 	switch (board->getCondition())
 	{
 	case 0:
-		num = 0, i = 0, j = 0;
+		todo = 99, i = 0, j = 0;
 		input();
-		switch (num)
+		switch (todo)
 		{
 		default:
 			DrawFormatString(460, 240, BLACK, "TURN PLAYER %d", board->getTurnPlayer());
 			ScreenFlip();
 			return;
-		case 1:
+		case 1: //プレーヤーのターン
 		{
 				  Point *point = new Point(i, j, 0);
 				  if (board->put(*point))
@@ -50,7 +50,33 @@ void GameScreen::face()
 				  delete point;
 				  return;
 		}
-		case -1:
+		case 2: //モード４
+			if (board->getTurnPlayer() == 1)
+			{
+				DrawFormatString(460, 240, BLACK, "TURN CPU A");
+				ScreenFlip();
+				Point *point = new Point(AI::answerA(*board), board->ableSpace);
+				if (board->put(*point))
+				{
+					print();
+				}
+				delete point;
+				return;
+			}
+			else
+			{
+				DrawFormatString(460, 240, BLACK, "TURN CPU B");
+				ScreenFlip();
+				Point *point = new Point(AI::answerB(*board), board->ableSpace);
+				if (board->put(*point))
+				{
+					print();
+				}
+				delete point;
+				return;
+			}
+			
+		case -1: //待った
 			board->undo();
 			if (*mode != 1)
 			{
@@ -58,11 +84,11 @@ void GameScreen::face()
 			}
 			print();
 			return;
-		case 0:
+		case 0: //cpuのターン
 		{
 				  DrawFormatString(460, 240, BLACK, "TURN CPU");
 				  ScreenFlip();
-				  Point *point = new Point(AI::answer(*board), board->ableSpace);
+				  Point *point = new Point(AI::answer(board), board->ableSpace);
 				  if (board->put(*point))
 				  {
 					  print();
@@ -89,8 +115,12 @@ void GameScreen::input()
 {
 	if ((*mode == 2 && board->getTurnPlayer() == 2) || (*mode == 3 && board->getTurnPlayer() == 1))
 	{
-		num = 0;
+		todo = 0;
 		return;
+	}
+	if (*mode == 4)
+	{
+		todo = 2;
 	}
 	int ClickX, ClickY, Button;
 	if (GetMouseInputLog(&Button, &ClickX, &ClickY, TRUE) == 0)
@@ -99,7 +129,7 @@ void GameScreen::input()
 		{
 			if (botan[0].isTouched(ClickX, ClickY))
 			{
-				num = -1;
+				todo = -1;
 				return;
 			}
 			if (botan[1].isTouched(ClickX, ClickY))
@@ -109,14 +139,13 @@ void GameScreen::input()
 			}
 			if (ClickX >= 80 && ClickX <= 400 && ClickY >= 100 && ClickY <= 420 && isEnd == false)
 			{
-				num = 1;
+				todo = 1;
 				i = (ClickX - 80) / 40;
 				j = (ClickY - 100) / 40;
 				return;
 			}
 		}
 	}
-	num = 99;
 }
 
 void GameScreen::print()

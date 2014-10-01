@@ -146,10 +146,14 @@ int BasicRead::judge()
 		fu[7 - i][7 - j] = board.log[board.getThisTurn()][i][j];
 	}
 	score += judgeQ(fu);
+	
 	score += board.getAbleNumber(1);
 	score -= board.getAbleNumber(2);
+	score -= board.getNumber(1) / 2;
+	score += board.getNumber(2) / 2;
 	return score;
 }
+
 
 int BasicRead::judgeQ(int fu[8][8])
 {
@@ -184,6 +188,34 @@ int BasicRead::judgeQ(int fu[8][8])
 	}
 	return score;
 }
+
+//int BasicRead::judgeReverse()
+//{
+//	int score;
+//	int fu[8][8];
+//	score = judgeQR(board.log[board.getThisTurn()]);
+//	for (int i = 0; i < 8; i++)
+//	for (int j = 0; j < 8; j++)
+//	{
+//		fu[i][7 - j] = board.log[board.getThisTurn()][i][j];
+//	}
+//	score += judgeQR(fu);
+//	for (int i = 0; i < 8; i++)
+//	for (int j = 0; j < 8; j++)
+//	{
+//		fu[7 - i][j] = board.log[board.getThisTurn()][i][j];
+//	}
+//	score += judgeQR(fu);
+//	for (int i = 0; i < 8; i++)
+//	for (int j = 0; j < 8; j++)
+//	{
+//		fu[7 - i][7 - j] = board.log[board.getThisTurn()][i][j];
+//	}
+//	score += judgeQR(fu);
+//	score += board.getAbleNumber(1);
+//	score -= board.getAbleNumber(2);
+//	return score;
+//}
 
 bool BasicRead::isStop(int fu[8][8], int player)
 {
@@ -227,6 +259,7 @@ bool BasicRead::isStop(int fu[8][8], int player)
 	}
 	return false;
 }
+
 int BasicRead::sign(int num)
 {
 	if (num == 2) num = -1;

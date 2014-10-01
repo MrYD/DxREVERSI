@@ -38,7 +38,10 @@ void MenuScreen::input()
 	{
 		if ((Button & MOUSE_INPUT_LEFT) != 0)
 		{
-
+			if (menu_botan[0].isTouched(ClickX, ClickY))
+			{
+				*mode = 4;
+			}
 			if (menu_botan[1].isTouched(ClickX, ClickY))
 			{
 				*mode = 1;

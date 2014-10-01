@@ -725,7 +725,7 @@ bool GameBoard::doTurn()
 		if (num == 0)
 		{
 			cout << "CPU‚ªl‚¦‚Ü‚·...";
-			num = AI::answer(*this);
+			num = AI::answerA(*this);
 			//num = 1;
 			cout << num << endl;
 		}

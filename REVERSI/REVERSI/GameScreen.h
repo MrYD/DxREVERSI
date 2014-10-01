@@ -23,12 +23,14 @@ public:
 private:
 	Botan botan[2];
 	Board* board;
+	void playerTurn();
+	void cpuTurn();
 	void result_MessageBox();
 	void pass_MessageBox();
 	void menu_MessageBox();
 	bool isEnd;
 	int* mode;
-	int num;
+	int todo;
 	int i;
 	int j;
 };
