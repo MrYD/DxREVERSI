@@ -16,8 +16,6 @@ private:
 	int mode;
 	int chara;
 	int screenMode;
-	MenuScreen* menuScreen;
-	CharaSelectScreen* charaScreen;
-	GameScreen* gameScreen;
+	IScreen *screen[3];
 };
 

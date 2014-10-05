@@ -1,9 +1,9 @@
 #pragma once
-#include "screen.h"
+#include "IScreen.h"
 #include "Botan.h"
 
 class MenuScreen :
-	public Screen
+	public IScreen
 {
 public:
 	MenuScreen();

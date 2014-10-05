@@ -34,6 +34,9 @@
     <Filter Include="ソース ファイル\DX\GameScreen">
       <UniqueIdentifier>{e3fff170-a105-402e-85fb-bed5ef222c77}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DxLib">
+      <UniqueIdentifier>{27fdf423-6df9-44aa-af44-a3bd47cf047c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -47,9 +50,6 @@
     </ClCompile>
     <ClCompile Include="BasicRead.cpp">
       <Filter>ソース ファイル\AI</Filter>
-    </ClCompile>
-    <ClCompile Include="Board.cpp">
-      <Filter>ソース ファイル\BOARD</Filter>
     </ClCompile>
     <ClCompile Include="DXBoard.cpp">
       <Filter>ソース ファイル\DX</Filter>
@@ -69,9 +69,6 @@
     <ClCompile Include="Point.cpp">
       <Filter>ソース ファイル\BOARD</Filter>
     </ClCompile>
-    <ClCompile Include="screen.cpp">
-      <Filter>ソース ファイル\DX</Filter>
-    </ClCompile>
     <ClCompile Include="CharaSelectScreen.cpp">
       <Filter>ソース ファイル\DX</Filter>
     </ClCompile>
@@ -89,6 +86,12 @@
     </ClCompile>
     <ClCompile Include="SENPAIRead.cpp">
       <Filter>ソース ファイル\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Board.cpp">
+      <Filter>ソース ファイル\DX</Filter>
+    </ClCompile>
+    <ClCompile Include="IScreen.cpp">
+      <Filter>ソース ファイル\DX</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +145,30 @@
     </ClInclude>
     <ClInclude Include="SENPAIRead.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxCompileConfig.h">
+      <Filter>DxLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxDataType.h">
+      <Filter>DxLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxDataTypeWin.h">
+      <Filter>DxLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxDirectX.h">
+      <Filter>DxLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h">
+      <Filter>DxLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxPixelShader.h">
+      <Filter>DxLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Downloads\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxVertexShader.h">
+      <Filter>DxLib</Filter>
+    </ClInclude>
+    <ClInclude Include="IScreen.h">
+      <Filter>ヘッダー ファイル\DX</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

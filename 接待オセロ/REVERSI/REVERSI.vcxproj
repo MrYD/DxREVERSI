@@ -79,6 +79,7 @@
     <ClCompile Include="DXBoard.cpp" />
     <ClCompile Include="FinalRead.cpp" />
     <ClCompile Include="GameScreen.cpp" />
+    <ClCompile Include="IScreen.cpp" />
     <ClCompile Include="KANOJOGS.cpp" />
     <ClCompile Include="KANOJORead.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -86,11 +87,17 @@
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="PointSheet.cpp" />
     <ClCompile Include="ReadI.cpp" />
-    <ClCompile Include="screen.cpp" />
     <ClCompile Include="SENPAIGS.cpp" />
     <ClCompile Include="SENPAIRead.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\Downloads\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxCompileConfig.h" />
+    <ClInclude Include="..\..\..\..\Downloads\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxDataType.h" />
+    <ClInclude Include="..\..\..\..\Downloads\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxDataTypeWin.h" />
+    <ClInclude Include="..\..\..\..\Downloads\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxDirectX.h" />
+    <ClInclude Include="..\..\..\..\Downloads\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxLib.h" />
+    <ClInclude Include="..\..\..\..\Downloads\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxPixelShader.h" />
+    <ClInclude Include="..\..\..\..\Downloads\DxLib_VC\プロジェクトに追加すべきファイル_VC用\DxVertexShader.h" />
     <ClInclude Include="AI.h" />
     <ClInclude Include="BasicRead.h" />
     <ClInclude Include="Board.h" />
@@ -99,6 +106,7 @@
     <ClInclude Include="DXBoard.h" />
     <ClInclude Include="FinalRead.h" />
     <ClInclude Include="GameScreen.h" />
+    <ClInclude Include="IScreen.h" />
     <ClInclude Include="KANOJOGS.h" />
     <ClInclude Include="KANOJORead.h" />
     <ClInclude Include="MenuScreen.h" />

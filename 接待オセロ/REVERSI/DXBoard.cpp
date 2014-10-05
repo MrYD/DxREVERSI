@@ -7,17 +7,19 @@ DXBoard::DXBoard()
 }
 DXBoard::~DXBoard()
 {
-	delete menuScreen;
-	delete charaScreen;
-	delete gameScreen;
+	for (int i = 0; i < 3; i++)
+	{
+		delete screen[i];
+	}
 }
 void DXBoard::init()
 {
 	mode = 0;
 	screenMode = 0;
 	Board::init(1);
-	menuScreen = new MenuScreen(&screenMode,&mode);
-	charaScreen = new CharaSelectScreen(&screenMode, &chara);
+	screen[0] = new MenuScreen(&screenMode,&mode);
+	screen[1] = new CharaSelectScreen(&screenMode, &chara);
+	screen[2] = new GameScreen();
 }
 
 
@@ -27,10 +29,10 @@ void DXBoard::face()
 	switch (screenMode)
 	{
 	case 0:
-		menuScreen->face();
+		screen[0]->face();
 		break;
 	case 1:
-		charaScreen->face();
+		screen[1]->face();
 		if (screenMode == 0) init();
 		break;
 	case 2:
@@ -40,16 +42,16 @@ void DXBoard::face()
 			screenMode = 1;
 			break;
 		case 0:
-	        gameScreen = new KANOJOGS(&screenMode,this);
+	        screen[2] = new KANOJOGS(&screenMode,this);
 			screenMode = 3;
 			break;
 		case 1:
-			gameScreen = new SENPAIGS(&screenMode, this);
+			screen[2] = new SENPAIGS(&screenMode, this);
 			screenMode = 3;
 			break;
 		}
 	case 3:
-		gameScreen->face();
+		screen[2]->face();
 		if (screenMode == 0) init();
 		break;
 	}

@@ -1,5 +1,5 @@
 #pragma once
-#include "screen.h"
+#include "IScreen.h"
 #include "AI.h"
 #include "Botan.h"
 #define BOARD  GetColor(0, 225, 50)
@@ -20,7 +20,7 @@
 #define STBLACK 2
 #define STWHITE 3
 
-class GameScreen :public Screen
+class GameScreen :public IScreen
 {
 public:
 	GameScreen();

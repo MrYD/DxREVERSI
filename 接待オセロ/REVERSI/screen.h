@@ -2,12 +2,9 @@
 class Screen
 {
 public:
-	Screen();
-	~Screen();
-	void init();
-	void face();
-protected:
-	void print();
-    void input();
+	Screen(){}
+	virtual ~Screen(){}
+	virtual void init(){}
+	virtual void face(){}
 };
 

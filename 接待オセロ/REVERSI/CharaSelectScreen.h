@@ -1,9 +1,9 @@
 #pragma once
-#include "screen.h"
+#include "IScreen.h"
 #include "Botan.h"
 #define NUMBER 3;
 class CharaSelectScreen :
-	public Screen
+	public IScreen
 {
 public:
 	CharaSelectScreen(int* screenmode,int* chara);
